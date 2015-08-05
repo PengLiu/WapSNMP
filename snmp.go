@@ -747,8 +747,10 @@ func (w WapSNMP) ParseTrap(response []byte) (map[string]interface{}, error) {
 	for i := 1; i < len(varbinds); i++ {
 		varoid := varbinds[i].([]interface{})[1]
 		value := varbinds[i].([]interface{})[2]
-		result[varoid.(string)] = value
-		//fmt.Printf("%s = %s\n", varoid, result)
+		fmt.Println(reflect.TypeOf(varoid))
+		//		oid := varoid.String()
+		//		result[oid] = value
+		fmt.Printf("%s = %s\n", varoid, result, value)
 	}
 	//	fmt.Printf("\n")
 
